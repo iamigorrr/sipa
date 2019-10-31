@@ -10,3 +10,6 @@
 '''
 
 mac = 'AAAA:BBBB:CCCC'
+digit = (int(mac.replace(':',''),16))
+bindig = bin(digit)
+print(str(bindig)[2:])
