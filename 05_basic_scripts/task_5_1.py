@@ -25,6 +25,7 @@ london_co = {
     'r1': {
         'location': '21 New Globe Walk',
         'vendor': 'Cisco',
+        
         'model': '4451',
         'ios': '15.4',
         'ip': '10.255.0.1'
@@ -46,3 +47,6 @@ london_co = {
         'routing': True
     }
 }
+
+devname = input('Введите имя устройства: ')
+print(london_co[devname])

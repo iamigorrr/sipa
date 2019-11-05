@@ -19,3 +19,23 @@ Mask:
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 '''
+
+ipinput = input('Введите IP-сеть в формате X.X.X.X/X: ')
+ip = ipinput.split('/')[0].split('.')
+mask = ipinput.split('/')[1]
+binmask = (int(mask) * '1' + (32 - int(mask)) * '0')
+
+iptemplate = '''
+Network:
+{0:<8} {1:<8} {2:<8} {3:<8}
+{0:08b} {1:08b} {2:08b} {3:08b}
+'''
+
+masktemplate = '''
+{0:<8} {1:<8} {2:<8} {3:<8}
+{0:08b} {1:08b} {2:08b} {3:08b}
+'''
+
+print(iptemplate.format(int(ip[0]), int(ip[1]), int(ip[2]), int(ip[3])))
+print('Mask:\n' + '/' + mask)
+print(masktemplate.format(int(binmask[0:8],2), int(binmask[8:16],2), int(binmask[16:24],2), int(binmask[24:32],2)))
