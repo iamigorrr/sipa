@@ -11,13 +11,35 @@
 То есть эту задачу можно решить без использования условия if и циклов for/while.
 '''
 
-access_template = [
-    'switchport mode access', 'switchport access vlan {}',
-    'switchport nonegotiate', 'spanning-tree portfast',
-    'spanning-tree bpduguard enable'
-]
 
-trunk_template = [
-    'switchport trunk encapsulation dot1q', 'switchport mode trunk',
-    'switchport trunk allowed vlan {}'
-]
+
+port_template = {
+    'access_template' : {
+			'access_template' : 'switchport mode access\n' 'switchport access vlan {}\n'
+			'switchport nonegotiate\n' 'spanning-tree portfast\n'
+			'spanning-tree bpduguard enable\n',
+			
+			'text' : 'Введите номер VLAN: '
+    
+    
+    
+   },
+
+
+    'trunk_template' : {
+			'trunk_template' : 'switchport trunk encapsulation dot1q\n' 'switchport mode trunk\n'
+			'switchport trunk allowed vlan {}\n',
+			
+			'text' : 'Введите разрешенные VLANы: '
+   }
+}
+
+mode = input('Введите режим работы интерфейса (access/trunk): ') + '_template'
+num = input('Введите тип и номер интерфейса: ')
+vlans = input(port_template[mode]['text'])
+
+print('interface ' + num)
+
+print(port_template[mode][mode].format(vlans))
+#mode_template = (mode + '_template')
+#print(mode_template.format(vlans))
