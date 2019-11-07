@@ -14,3 +14,16 @@
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 '''
+
+ip = input('Введите IP-адрес в формате X.X.X.X: ')
+
+if int(ip.split('.')[0]) > 0 and int(ip.split('.')[0]) < 224:
+	print('Адрес unicast')
+elif int(ip.split('.')[0]) > 223 and int(ip.split('.')[0]) < 240:
+	print('Адрес multicast')
+elif '255.255.255.255' in ip:
+	print('Адрес local broadcast')
+elif '0.0.0.0' in ip:
+	print('Адрес unassigned')
+else:
+	print('Адрес unused')
