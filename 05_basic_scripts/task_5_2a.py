@@ -37,11 +37,11 @@ mask = ipinput.split('/')[1]
 binmask = (int(mask) * '1' + (32 - int(mask)) * '0')
 
 
-
-oct1 = (int(bin(int(ip[0]) & int(binmask[0:8],2))[2:],2))
-oct2 = (int(bin(int(ip[1]) & int(binmask[8:16],2))[2:],2))
-oct3 = (int(bin(int(ip[2]) & int(binmask[16:24],2))[2:],2))
-oct4 = (int(bin(int(ip[3]) & int(binmask[24:32],2))[2:],2))
+print(int(ip[0]) & int(binmask[0:8],2))
+oct1 = int(ip[0]) & int(binmask[0:8],2)
+oct2 = int(ip[1]) & int(binmask[8:16],2)
+oct3 = int(ip[2]) & int(binmask[16:24],2)
+oct4 = int(ip[3]) & int(binmask[24:32],2)
 
 iptemplate = '''
 Network:
