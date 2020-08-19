@@ -14,8 +14,8 @@
 
 
 port_template = {
-    'access_template' : {
-			'access_template' : 'switchport mode access\n' 'switchport access vlan {}\n'
+    'access' : {
+			'access' : 'switchport mode access\n' 'switchport access vlan {}\n'
 			'switchport nonegotiate\n' 'spanning-tree portfast\n'
 			'spanning-tree bpduguard enable\n',
 			
@@ -26,15 +26,15 @@ port_template = {
    },
 
 
-    'trunk_template' : {
-			'trunk_template' : 'switchport trunk encapsulation dot1q\n' 'switchport mode trunk\n'
+    'trunk' : {
+			'trunk' : 'switchport trunk encapsulation dot1q\n' 'switchport mode trunk\n'
 			'switchport trunk allowed vlan {}\n',
 			
 			'text' : 'Введите разрешенные VLANы: '
    }
 }
 
-mode = input('Введите режим работы интерфейса (access/trunk): ') + '_template'
+mode = input('Введите режим работы интерфейса (access/trunk): ')
 num = input('Введите тип и номер интерфейса: ')
 vlans = input(port_template[mode]['text'])
 
