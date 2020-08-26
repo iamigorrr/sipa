@@ -37,7 +37,7 @@ else:
 '''
 if ''.join(ip.split('.')).isdigit() and len(ip.split('.')) == 4:
 	for octet in ip.split('.'):
-		if int(octet) > 256 or int(octet) <= 0:
+		if int(octet) > 255 or int(octet) < 0:
 				print('Неправильный IP-адрес')
 				break
 	else:
